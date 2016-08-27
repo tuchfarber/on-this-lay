@@ -23,11 +23,17 @@ angular.module('myApp.home', ['ngRoute'])
         $http.get('https://api.tuchfarber.com/api/onthislay/' + inputDate)
         .then(
             function(response) {
-                $scope.date = response.data.data.day
-                $scope.details = response.data.data.detail
+                $scope.date = new Date(response.data.data.day).toDateString();
+
+                var details = response.data.data.detail;
+                if(details !== ''){
+                    $scope.details = response.data.data.detail
+                }else{
+                    $scope.details = "Your parents' coitus was not inspired by any important event."
+                }
             },
             function(response) {
-                console.log("bad");
+                //Swallow that shit. 
             });
     };
 }]);
