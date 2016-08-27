@@ -10,10 +10,6 @@ RED = redis.ConnectionPool(host='redis_01',port=6379,db=0)
 LENGTH_OF_PREG = 280
 WEEK = 7
 
-@get('/api/test')
-def index():
-  return {'status':'fuck you'}
-
 @get('/api/onthislay/<sent_date>')
 def return_date(sent_date):
     #Create the redis connection
@@ -37,8 +33,11 @@ def return_date(sent_date):
             data['data']['detail'] = response[0].decode("utf-8")
             data['data']['day'] = possible_conception_date.isoformat()
             all_events.append(json.dumps(data))
-    
-    return random.choice(all_events)
+
+    if len(all_events) > 0: 
+        return random.choice(all_events)
+    else:
+        return {'data':{'detail':"Your parents' coitus was not inspired by any important event.", 'day':conception.isoformat()}}
  
 def get_date(sent_date):
     splitd = sent_date.split('-')
