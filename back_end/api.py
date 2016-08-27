@@ -5,8 +5,8 @@ import sys
 import random
 from datetime import date, timedelta
 
-#RED = redis.ConnectionPool(host='redis_01',port=6379,db=0)
-RED = redis.ConnectionPool(host='tuchfarber.com',port=6379,db=0)
+RED = redis.ConnectionPool(host='redis_01',port=6379,db=0)
+#RED = redis.ConnectionPool(host='tuchfarber.com',port=6379,db=0)
 LENGTH_OF_PREG = 280
 WEEK = 7
 
@@ -14,7 +14,7 @@ WEEK = 7
 def index():
   return {'status':'fuck you'}
 
-@get('/api/onthislay/<date>')
+@get('/api/onthislay/<sent_date>')
 def return_date(sent_date):
     #Create the redis connection
     redis_server = redis.Redis(connection_pool=RED)
