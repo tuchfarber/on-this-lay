@@ -4,9 +4,9 @@
 angular.module('myApp', [
   'ngRoute',
   'ngResource',
-  'myApp.view1'
+  'myApp.home'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.otherwise({redirectTo: '/home'});
 }]);
