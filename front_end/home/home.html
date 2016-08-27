@@ -1,7 +1,10 @@
-<div>
-	<label>Date of birth</label>
+<div class="jumbotron">
+	<h1>On This Lay In History...</h1>
+</div>
+<div class="center">
+	<h3>Date of Birth</h3>
 	<div>
-		<select name="dob-day" id="dob-day">
+		<select ng-model="inputDay" name="dob-day" id="dob-day">
 		  <option value="">Day</option>
 		  <option value="">---</option>
 		  <option value="01">01</option>
@@ -36,7 +39,7 @@
 		  <option value="30">30</option>
 		  <option value="31">31</option>
 		</select>
-		<select name="dob-month" id="dob-month">
+		<select ng-model="inputMonth" name="dob-month" id="dob-month">
 		  <option value="">Month</option>
 		  <option value="">-----</option>
 		  <option value="01">January</option>
@@ -52,7 +55,7 @@
 		  <option value="11">November</option>
 		  <option value="12">December</option>
 		</select>
-		<select name="dob-year" id="dob-year">
+		<select ng-model="inputYear" name="dob-year" id="dob-year">
 		  <option value="">Year</option>
 		  <option value="">----</option>
 		  <option value="2016">2016</option>
@@ -172,5 +175,13 @@
 		  <option value="1901">1901</option>
 		  <option value="1900">1900</option>
 		</select>
+		<input class="btn btn-primary" type="button" name="btnSubmit" id="btnSubmit" value="Submit" ng-click="getData()">
+	</div>
+	<br/>
+	<div>
+		<h1>{{date}}</h1>
+		<br/>
+		<br/>
+		<h2>{{details}}</h2>
 	</div>
 </div>
