@@ -38,7 +38,7 @@ def return_date(sent_date):
                                        0, -1)
         if len(response) > 0:
             data['data']['detail'] = response[0].decode("utf-8")
-            data['data']['day'] = sent_date
+            data['data']['day'] = possible_conception_date.isoformat()
             all_events[possible_conception_date] = json.dumps(data)
     
     # key_to_use = random.choice(all_events.keys())
