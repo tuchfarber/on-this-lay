@@ -20,7 +20,7 @@ def return_date(sent_date):
     data['data'] = {}
 
     birthday = get_date(sent_date)
-    conception = birthday - timedelta(days=(LENGTH_OF_PREG + WEEK))
+    conception = birthday - timedelta(days=(LENGTH_OF_PREG + WEEK * 5))
 
     all_events = []
   
