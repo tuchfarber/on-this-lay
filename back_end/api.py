@@ -23,30 +23,22 @@ def return_date(sent_date):
     data = {}
     data['data'] = {}
 
-
     birthday = get_date(sent_date)
-    conception = birthday - timedelta(LENGTH_OF_PREG + WEEK)
+    conception = birthday - timedelta(days=(LENGTH_OF_PREG + WEEK))
 
-    all_events = {}
+    all_events = []
   
     for i in range(1, 14):
-        possible_conception_date = conception + timedelta(i)
-        sys.stdout.write(possible_conception_date.isoformat() + "\n")
-        sys.stdout.flush()
+        possible_conception_date = conception + timedelta(days=i)
         response = redis_server.lrange('dates:' + 
                                        possible_conception_date.isoformat(),
                                        0, -1)
         if len(response) > 0:
             data['data']['detail'] = response[0].decode("utf-8")
             data['data']['day'] = possible_conception_date.isoformat()
-            all_events[possible_conception_date] = json.dumps(data)
+            all_events.append(json.dumps(data))
     
-    # key_to_use = random.choice(all_events.keys())
-    for key, value in all_events.items():
-         return all_events[key]
-    #    sys.stdout.write('Date: ' + key.isoformat() + "\n")
-    #    sys.stdout.write('Value: ' + value + "\n")
-    #    sys.stdout.flush()
+    return random.choice(all_events)
  
 def get_date(sent_date):
     splitd = sent_date.split('-')
