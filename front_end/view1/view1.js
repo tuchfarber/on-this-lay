@@ -9,8 +9,11 @@ angular.module('myApp.view1', ['ngRoute'])
     });
 }])
 
-.controller('View1Ctrl', [function($scope, Post) {
-    Post.query(function(data) {
-        $scope.posts = data;
-    });
+.controller('View1Ctrl', ['$scope', '$http', function($scope, $http) {
+    $http.get("https://api.tuchfarber.com/api/test")
+    .then(function(response) {
+        $scope.content = response.data;
+        $scope.statuscode = response.status;
+        $scope.statustext = response.statustext;
+    })
 }]);
