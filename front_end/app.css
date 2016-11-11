@@ -1,7 +1,8 @@
-.centerDiv{
-	text-align: center;
-	font-size: x-large;
+html,body{
+	width:600px;
+	margin:auto;
+	text-align:center;
 }
-.dob{
-	font-size: 28pt;
+.highlight{
+	color:#888;
 }
