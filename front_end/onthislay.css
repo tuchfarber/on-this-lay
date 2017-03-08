@@ -4,8 +4,9 @@ html,body{
 .highlight{
 	color:#888;
 }
-h1,h2{
+h1,h2,h3{
 	text-align: center;
+	margin: 10px auto;
 }
 .center{
 	width:80%;
