@@ -1,6 +1,6 @@
 html,body{
 	width:100%;
-	background-color:#037;
+	background-color:#48c;
 	color:#eee;
 }
 select,button{
@@ -9,7 +9,7 @@ select,button{
 	background-color:#eee;
 }
 .highlight{
-	color:#888;
+	color:#4ff;
 }
 h1,h2,h3{
 	text-align: center;
