@@ -1,5 +1,12 @@
 html,body{
 	width:100%;
+	background-color:#037;
+	color:#eee;
+}
+select,button{
+	font-size:22px;
+	border-radius:5px;
+	background-color:#eee;
 }
 .highlight{
 	color:#888;
